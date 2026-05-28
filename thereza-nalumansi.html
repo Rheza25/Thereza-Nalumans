@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thereza Nalumansi | MEAL Consultant · Uganda</title>
+  <meta name="description" content="Freelance MEAL Consultant with 5+ years designing evaluation systems, leading baseline surveys, and writing donor reports for health and development programmes in Uganda and East Africa." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Thereza Nalumansi | MEAL Consultant · Uganda" />
+  <meta property="og:description" content="I help NGOs design evidence-based M&E systems and write donor reports that demonstrate real impact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thereza Nalumansi | MEAL Consultant" />
+  <meta name="twitter:description" content="I help NGOs design evidence-based M&E systems and write donor reports that demonstrate real impact." />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3a2e'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='%23c8a04a' font-family='Georgia'>T</text></svg>" />
+
+  <!-- Fonts with display=swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & TOKENS ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest:   #1a3a2e;
+      --forest-2: #24503e;
+      --forest-3: #2f6650;
+      --gold:     #c8a04a;
+      --gold-2:   #e8c06a;
+      --cream:    #f7f3ec;
+      --cream-2:  #ede8df;
+      --sand:     #d9d0c1;
+      --ink:      #1c1c1a;
+      --ink-2:    #3a3a36;
+      --muted:    #5e5e56; /* darkened from #7a7a72 for WCAG AA compliance */
+      --white:    #ffffff;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Outfit', sans-serif;
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 22px;
+
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--gold); color: var(--forest); }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── SKIP LINK (accessibility) ──────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--forest);
+      color: var(--cream);
+      padding: 10px 20px;
+      border-radius: var(--r-sm);
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ─── UTILITY ─────────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--gold);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--forest-3);
+      color: var(--forest-3);
+      background: transparent;
+    }
+    .tag-gold { border-color: var(--gold); color: var(--gold); }
+    .tag-white { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.85); }
+
+    /* ─── SCROLL REVEAL ───────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 0;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(247, 243, 236, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--sand);
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.01em;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink-2);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--forest); }
+
+    /* FIX: specificity increased, no !important needed */
+    nav .nav-links a.nav-cta {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 8px 22px;
+      border-radius: 40px;
+      transition: background var(--transition);
+    }
+    nav .nav-links a.nav-cta:hover { background: var(--forest-2); color: var(--cream); }
+
+    /* FIX: Hamburger as a proper button */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+      border-radius: var(--r-sm);
+    }
+    .hamburger:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: var(--forest);
+      display: flex;
+      align-items: center;
+      padding: 8rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 40%, rgba(200,160,74,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(47,102,80,0.5) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Decorative large letter — will-change helps reduce repaint cost */
+    #hero::after {
+      content: 'T';
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(18rem, 30vw, 38rem);
+      font-weight: 600;
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      will-change: transform;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+    .hero-eyebrow-line { width: 36px; height: 1.5px; background: var(--gold); }
+    .hero-eyebrow-text {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 500;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-2); }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--forest);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 14px 30px;
+      border-radius: 40px;
+      transition: background var(--transition), transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--gold-2); transform: translateY(-2px); }
+    .btn-primary:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 3px; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 14px 30px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: border-color var(--transition), color var(--transition), transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-2px); }
+
+    .btn-outline-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 14px 30px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background var(--transition), transform 0.2s;
+    }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
+
+    .hero-badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2rem; }
+
+    /* Profile picture card */
+    .profile-card { position: relative; }
+    .profile-img-wrap {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: var(--forest-2);
+      border: 2px solid rgba(200,160,74,0.3);
+      position: relative;
+    }
+    .profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: linear-gradient(160deg, var(--forest-2) 0%, var(--forest-3) 100%);
+    }
+    .avatar-initials {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(200,160,74,0.2);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--gold);
+    }
+    .avatar-placeholder-text { font-size: 12px; color: rgba(255,255,255,0.4); text-align: center; max-width: 160px; }
+
+    .profile-floater {
+      position: absolute;
+      bottom: -1.5rem;
+      left: -1.5rem;
+      background: var(--white);
+      border-radius: var(--r-md);
+      padding: 1rem 1.25rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      min-width: 180px;
+    }
+    .floater-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; color: var(--forest); line-height: 1; }
+    .floater-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .floater-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4caf88;
+      display: inline-block;
+      margin-right: 5px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* ─── STATS STRIP ─────────────────────────────────────── */
+    #stats {
+      background: var(--cream-2);
+      border-top: 1px solid var(--sand);
+      border-bottom: 1px solid var(--sand);
+      padding: 2.5rem 0;
+    }
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--forest);
+      line-height: 1;
+    }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    #about { padding: 7rem 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+    .about-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .about-text h2 em { font-style: italic; color: var(--forest); }
+    .about-text p { font-size: 0.97rem; color: var(--ink-2); margin-bottom: 1.25rem; line-height: 1.85; }
+    .about-text .lead { font-size: 1.1rem; color: var(--ink); font-weight: 400; }
+
+    .competency-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .competency-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--sand);
+    }
+    .competency-item:first-child { border-top: 1px solid var(--sand); }
+    .competency-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--r-sm);
+      background: var(--forest);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .competency-icon svg { width: 16px; height: 16px; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .competency-name { font-weight: 500; font-size: 14px; color: var(--ink); margin-bottom: 2px; }
+    .competency-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    .tools-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    #services {
+      padding: 7rem 0;
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+    #services::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(200,160,74,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; gap: 2rem; }
+    .services-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; color: var(--white); line-height: 1.2; max-width: 440px; }
+    .services-header h2 em { font-style: italic; color: var(--gold-2); }
+    .services-header p { font-size: 14px; color: rgba(255,255,255,0.55); max-width: 280px; text-align: right; line-height: 1.7; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(255,255,255,0.08); border-radius: var(--r-lg); overflow: hidden; }
+    .service-card { background: var(--forest); padding: 2.5rem 2rem; position: relative; transition: background var(--transition); }
+    .service-card:hover { background: var(--forest-2); }
+    .service-number { font-family: var(--font-display); font-size: 4rem; font-weight: 600; color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: -1rem; }
+    .service-icon-box { width: 48px; height: 48px; border-radius: var(--r-sm); border: 1px solid rgba(200,160,74,0.4); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; background: rgba(200,160,74,0.07); }
+    .service-icon-box svg { width: 22px; height: 22px; fill: none; stroke: var(--gold); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .service-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
+    .service-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 1.5rem; }
+    .service-deliverables { list-style: none; margin-bottom: 1.75rem; }
+    .service-deliverables li { font-size: 13px; color: rgba(255,255,255,0.55); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 8px; }
+    .service-deliverables li::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .service-price { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+
+    /* ─── PROJECTS ────────────────────────────────────────── */
+    #projects { padding: 7rem 0; }
+    .projects-header { text-align: center; margin-bottom: 4rem; }
+    .projects-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+    .projects-header h2 em { font-style: italic; color: var(--forest); }
+    .projects-header p { font-size: 15px; color: var(--muted); max-width: 520px; margin: 0 auto; }
+
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .project-card { background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-lg); padding: 2rem; position: relative; overflow: hidden; transition: box-shadow var(--transition), transform var(--transition); }
+    .project-card:hover { box-shadow: 0 16px 48px rgba(26,58,46,0.1); transform: translateY(-4px); }
+    .project-card.featured { grid-column: span 2; background: var(--forest); border-color: var(--forest); color: var(--white); }
+    .project-card.featured:hover { box-shadow: 0 16px 48px rgba(26,58,46,0.3); }
+
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; gap: 1rem; }
+    .project-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest-3); background: rgba(47,102,80,0.1); padding: 4px 10px; border-radius: 20px; }
+    .project-card.featured .project-tag { color: var(--gold-2); background: rgba(200,160,74,0.15); }
+    .project-rating { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--gold); }
+    .project-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 500; color: var(--ink); line-height: 1.3; margin-bottom: 0.75rem; }
+    .project-card.featured .project-title { color: var(--white); font-size: 1.65rem; }
+    .project-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 1.25rem; }
+    .project-card.featured .project-desc { color: rgba(255,255,255,0.65); }
+    .project-outcomes { display: flex; flex-wrap: wrap; gap: 8px; }
+    .outcome-pill { font-size: 12px; color: var(--forest); background: rgba(47,102,80,0.08); border: 1px solid rgba(47,102,80,0.2); padding: 4px 12px; border-radius: 20px; }
+    .project-card.featured .outcome-pill { color: var(--gold-2); background: rgba(200,160,74,0.1); border-color: rgba(200,160,74,0.25); }
+    .project-decoration { position: absolute; bottom: -2rem; right: -2rem; font-family: var(--font-display); font-size: 8rem; font-weight: 600; color: rgba(0,0,0,0.03); line-height: 1; pointer-events: none; user-select: none; }
+    .project-card.featured .project-decoration { color: rgba(255,255,255,0.04); }
+
+    /* ─── CREDENTIALS ─────────────────────────────────────── */
+    #credentials { padding: 7rem 0; background: var(--cream-2); }
+    .credentials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .cred-col h2 { font-family: var(--font-display); font-size: 1.9rem; font-weight: 500; color: var(--ink); margin-bottom: 2rem; line-height: 1.2; }
+
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item { display: grid; grid-template-columns: 14px 1fr; gap: 1rem; padding-bottom: 2rem; position: relative; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot-wrap { display: flex; flex-direction: column; align-items: center; }
+    .timeline-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--forest); background: var(--cream-2); flex-shrink: 0; }
+    .timeline-dot.active { background: var(--forest); }
+    .timeline-line { width: 2px; flex: 1; background: var(--sand); margin-top: 4px; }
+    .timeline-item:last-child .timeline-line { display: none; }
+    .timeline-period { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--gold); text-transform: uppercase; margin-bottom: 3px; }
+    .timeline-role { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 2px; }
+    .timeline-org { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .timeline-note { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+    .cert-list { display: flex; flex-direction: column; gap: 0; }
+    .cert-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--sand); }
+    .cert-item:first-child { border-top: 1px solid var(--sand); }
+    .cert-icon { width: 40px; height: 40px; border-radius: var(--r-sm); background: var(--forest); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cert-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; }
+    .cert-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+    .cert-org { font-size: 12px; color: var(--muted); margin-top: 1px; }
+    .cert-year { margin-left: auto; font-size: 11px; font-weight: 600; color: var(--gold); background: rgba(200,160,74,0.1); padding: 3px 10px; border-radius: 20px; flex-shrink: 0; }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    #contact {
+      padding: 7rem 0;
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 80% at 50% 100%, rgba(200,160,74,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .contact-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+
+    #contact h2 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 500; color: var(--white); line-height: 1.15; margin-bottom: 1.25rem; }
+    #contact h2 em { font-style: italic; color: var(--gold-2); }
+    #contact .contact-lead { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 3rem; line-height: 1.75; max-width: 560px; }
+
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+
+    /* Contact cards (left column) */
+    .contact-cards-col { display: flex; flex-direction: column; gap: 0.75rem; }
+    .contact-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background var(--transition);
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.12); }
+    .contact-card svg { width: 18px; height: 18px; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; flex-shrink: 0; }
+    .contact-card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+    .contact-card-value { font-size: 14px; color: var(--white); font-weight: 500; }
+
+    .linkedin-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background var(--transition);
+    }
+    .linkedin-card:hover { background: rgba(255,255,255,0.12); }
+    .linkedin-icon { width: 18px; height: 18px; fill: var(--gold); flex-shrink: 0; }
+
+    /* Contact form (right column) */
+    .contact-form { display: flex; flex-direction: column; gap: 0.85rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--r-sm);
+      padding: 11px 14px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--white);
+      transition: border-color var(--transition), background var(--transition);
+      outline: none;
+      width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select { appearance: none; color: rgba(255,255,255,0.7); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c8a04a' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    .form-group select option { background: var(--forest-2); color: var(--white); }
+
+    .form-status { font-size: 13px; padding: 10px 14px; border-radius: var(--r-sm); display: none; }
+    .form-status.success { display: block; background: rgba(76,175,136,0.15); border: 1px solid rgba(76,175,136,0.3); color: #4caf88; }
+    .form-status.error { display: block; background: rgba(200,80,80,0.15); border: 1px solid rgba(200,80,80,0.3); color: #e07070; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--forest);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 13px 28px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform 0.2s;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { background: var(--gold-2); transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer { background: #111; padding: 2rem 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+    footer span { color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color var(--transition); }
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      /* FIX: show a smaller profile card instead of hiding it */
+      .profile-card { max-width: 260px; margin: 2rem auto 0; }
+      .services-header { flex-direction: column; align-items: flex-start; }
+      .services-header p { text-align: left; }
+      .services-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+      .credentials-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        background: var(--cream);
+        z-index: 99;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+      }
+      .nav-links.open a { font-size: 1.5rem; }
+      .hamburger { display: flex; z-index: 101; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary, .btn-outline-light { text-align: center; justify-content: center; }
+    }
+
+    /* ─── REDUCED MOTION ──────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .floater-dot { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip navigation link for keyboard users -->
+  <a href="#about" class="skip-link">Skip to main content</a>
+
+  <!-- ═══ NAV ════════════════════════════════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="#" class="nav-logo" aria-label="Thereza Nalumansi — home">Thereza <span>N.</span></a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#credentials">Background</a></li>
+        <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+      </ul>
+      <!-- FIX: proper <button> with aria-expanded and aria-controls -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-expanded="false"
+        aria-controls="nav-links"
+        aria-label="Open navigation menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Introduction">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-content">
+          <div class="hero-eyebrow" aria-hidden="true">
+            <div class="hero-eyebrow-line"></div>
+            <span class="hero-eyebrow-text">Freelance MEAL Consultant · Uganda</span>
+          </div>
+
+          <h1 class="hero-title">
+            Turning Data<br/>Into <em>Donor-Grade</em><br/>Impact Evidence
+          </h1>
+
+          <p class="hero-desc">
+            I design M&amp;E systems, lead rigorous evaluations, and write reports that earn the highest donor ratings — helping NGOs and development programmes prove their impact and protect their funding.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Work With Me
+            </a>
+            <a href="#projects" class="btn-secondary">
+              View My Work
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <!-- NEW: CV download button -->
+            <a href="assets/thereza-nalumansi-cv.pdf" download class="btn-outline-light" aria-label="Download Thereza's CV as PDF">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download CV
+            </a>
+          </div>
+
+          <div class="hero-badge-row" aria-label="Key skills and affiliations">
+            <span class="tag tag-gold">SPSS · Stata · Excel</span>
+            <span class="tag tag-gold">DHIS2 · Uganda EMR</span>
+            <span class="tag tag-gold">UK Aid · USAID · UNICEF</span>
+            <span class="tag tag-gold">Jinja, Uganda</span>
+          </div>
+        </div>
+
+        <!-- Profile card — now visible on tablet too, just smaller -->
+        <div class="profile-card" aria-hidden="true">
+          <div class="profile-img-wrap">
+            <!--
+              TO ADD YOUR PHOTO:
+              Replace the .profile-placeholder div with:
+              <img src="assets/thereza.jpg" alt="Thereza Nalumansi, MEAL Consultant" />
+            -->
+            <div class="profile-placeholder">
+              <div class="avatar-initials">TN</div>
+              <p class="avatar-placeholder-text">Add photo:<br/>assets/thereza.jpg</p>
+            </div>
+          </div>
+          <div class="profile-floater">
+            <div class="floater-num">5+</div>
+            <div class="floater-label">
+              <span class="floater-dot"></span>Years in MEAL
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ════════════════════════════════════════════ -->
+  <section id="stats" aria-label="Key statistics">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item reveal">
+          <!-- data-target drives the JS counter animation -->
+          <div class="stat-num" data-target="5" data-suffix="+">0</div>
+          <div class="stat-label">Years of MEAL experience</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-num" data-target="41">0</div>
+          <div class="stat-label">Health facilities supported</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-num" data-static>"A"</div>
+          <div class="stat-label">UK Aid performance rating</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-num" data-target="3" data-suffix="+">0</div>
+          <div class="stat-label">Sectors: health, SRHR, agriculture</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ════════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-text reveal">
+          <span class="section-label">About Me</span>
+          <h2>A MEAL specialist who works<br/><em>end-to-end</em>, not just in one lane</h2>
+          <p class="lead">Most M&amp;E professionals can design a framework <em>or</em> analyse data <em>or</em> write a report. I do all three — from designing the data collection tool in KoBoToolbox to delivering a polished donor narrative that earns top marks.</p>
+          <p>With a Postgraduate Diploma in Monitoring &amp; Evaluation from Uganda Management Institute and a Bachelor's in Statistics &amp; Economics from Kyambogo University, I combine academic rigour with hard-won field experience across Uganda's health, SRHR, and agricultural development sectors.</p>
+          <p>I've supported programmes funded by UK Aid, USAID, UNICEF, and PEPFAR — working at every level from facility registers to donor dashboards. My UK Aid end-of-project report earned an official "A" performance rating — the highest possible.</p>
+          <div class="tools-row" aria-label="Tools and skills">
+            <span class="tag">SPSS</span>
+            <span class="tag">Stata</span>
+            <span class="tag">Advanced Excel</span>
+            <span class="tag">KoBoToolbox</span>
+            <span class="tag">DHIS2</span>
+            <span class="tag">Uganda EMR</span>
+            <span class="tag">HMIS</span>
+            <span class="tag">Log frames</span>
+            <span class="tag">Results frameworks</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <ul class="competency-list" aria-label="Core competencies">
+            <li class="competency-item">
+              <div class="competency-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              </div>
+              <div>
+                <div class="competency-name">MEAL System Design</div>
+                <div class="competency-desc">Frameworks, log frames, indicators, and monitoring plans built to donor standards from day one.</div>
+              </div>
+            </li>
+            <li class="competency-item">
+              <div class="competency-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              </div>
+              <div>
+                <div class="competency-name">Baseline &amp; Endline Evaluations</div>
+                <div class="competency-desc">Full-cycle surveys — tool design, field supervision, data cleaning, analysis, and dissemination.</div>
+              </div>
+            </li>
+            <li class="competency-item">
+              <div class="competency-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div>
+                <div class="competency-name">Donor Reporting &amp; Documentation</div>
+                <div class="competency-desc">Results-based reports, success stories, and learning briefs formatted to UK Aid, USAID, and UN standards.</div>
+              </div>
+            </li>
+            <li class="competency-item">
+              <div class="competency-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div class="competency-name">Health Information Systems</div>
+                <div class="competency-desc">DHIS2, Uganda EMR, and HMIS data validation, DQAs, and facility staff capacity building.</div>
+              </div>
+            </li>
+            <li class="competency-item">
+              <div class="competency-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div>
+                <div class="competency-name">Capacity Building &amp; Mentorship</div>
+                <div class="competency-desc">Training project staff and health workers on MEAL tools, reporting standards, and data quality.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═════════════════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <h2>Three ways I can <em>help your programme</em> right now</h2>
+        <p>Practical, deliverable services you can commission today — each one grounded in real programme experience.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-number" aria-hidden="true">01</div>
+          <div class="service-icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3 class="service-name">MEAL System Design &amp; Setup</h3>
+          <p class="service-desc">For NGOs launching new projects or those with MEAL systems that aren't working. I build the entire monitoring architecture your donor expects — and your team can actually use.</p>
+          <ul class="service-deliverables" aria-label="Service deliverables">
+            <li>MEAL framework &amp; results framework</li>
+            <li>Log frame with SMART indicators</li>
+            <li>KoBoToolbox / ODK data collection tools</li>
+            <li>Reporting templates &amp; M&amp;E workplan</li>
+            <li>Staff training on MEAL tools</li>
+          </ul>
+          <div class="service-price">From USD 600 · 2–3 weeks</div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-number" aria-hidden="true">02</div>
+          <div class="service-icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M2 20h.01M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+          </div>
+          <h3 class="service-name">Baseline &amp; Endline Evaluations</h3>
+          <p class="service-desc">Rigorous evaluations that satisfy donor requirements and actually improve your programme. I handle the full cycle — from survey design to the final dissemination report.</p>
+          <ul class="service-deliverables" aria-label="Service deliverables">
+            <li>Survey tool design (quantitative &amp; qualitative)</li>
+            <li>Enumerator training guide</li>
+            <li>Field data collection supervision</li>
+            <li>Data cleaning &amp; analysis (SPSS / Stata / Excel)</li>
+            <li>Evaluation report with recommendations</li>
+          </ul>
+          <div class="service-price">From USD 800 · 3–6 weeks</div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-number" aria-hidden="true">03</div>
+          <div class="service-icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3 class="service-name">Donor Reporting &amp; Documentation</h3>
+          <p class="service-desc">The report your team dreads writing is the one I do best. Results-based donor reports, success stories, and learning briefs — written to the standard that earns "A" ratings.</p>
+          <ul class="service-deliverables" aria-label="Service deliverables">
+            <li>Donor progress &amp; end-of-project reports</li>
+            <li>Beneficiary success stories</li>
+            <li>Learning and reflection briefs</li>
+            <li>Data visualisation summaries &amp; charts</li>
+            <li>Monthly/quarterly reporting retainers</li>
+          </ul>
+          <div class="service-price">From USD 300 · Retainers available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ══════════════════════════════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <div class="projects-header reveal">
+        <span class="section-label">Selected Work</span>
+        <h2>Evidence of <em>real-world impact</em></h2>
+        <p>A selection of programmes and evaluations where my MEAL work directly strengthened performance, accountability, and donor confidence.</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card featured reveal">
+          <div class="project-header">
+            <span class="project-tag">UK Aid · Health &amp; Wellbeing</span>
+            <div class="project-rating" aria-label="Rating: A">★ A Rating</div>
+          </div>
+          <h3 class="project-title">Improved Health and Wellbeing — End-of-Project Evaluation</h3>
+          <p class="project-desc">Led the full end-of-project evaluation for Act 4 Africa's UK Aid-funded Improved Health and Wellbeing programme. Designed evaluation methodology, coordinated data collection, conducted analysis using Stata, and authored the final donor report. The submission received an official "A" performance rating — the highest possible — demonstrating exceptional evidence quality and narrative clarity.</p>
+          <div class="project-outcomes">
+            <span class="outcome-pill">A Performance Rating</span>
+            <span class="outcome-pill">Full evaluation cycle</span>
+            <span class="outcome-pill">Stata analysis</span>
+            <span class="outcome-pill">Donor narrative</span>
+          </div>
+          <div class="project-decoration" aria-hidden="true">A</div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-header"><span class="project-tag">Act 4 Africa · SRHR</span></div>
+          <h3 class="project-title">She Leads &amp; Adolescent Mothers MEAL System</h3>
+          <p class="project-desc">Designed and operationalised comprehensive MEAL frameworks for two concurrent programmes supporting adolescent mothers and girls' leadership. Built data collection tools, indicator frameworks, and a beneficiary feedback and complaints mechanism (FCRM) that strengthened accountability to affected populations.</p>
+          <div class="project-outcomes">
+            <span class="outcome-pill">MEAL framework</span>
+            <span class="outcome-pill">FCRM setup</span>
+            <span class="outcome-pill">Multi-district</span>
+          </div>
+          <div class="project-decoration" aria-hidden="true">S</div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-header"><span class="project-tag">Agriculture · Grains for Growth</span></div>
+          <h3 class="project-title">Grains for Growth Baseline Survey</h3>
+          <p class="project-desc">Designed the baseline survey tool for an agricultural development programme, led field team deployment, and produced regular pre-harvest and post-harvest training reports that kept the donor updated on programme progress throughout the season.</p>
+          <div class="project-outcomes">
+            <span class="outcome-pill">Baseline design</span>
+            <span class="outcome-pill">Field supervision</span>
+            <span class="outcome-pill">Donor reporting</span>
+          </div>
+          <div class="project-decoration" aria-hidden="true">G</div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-header"><span class="project-tag">USAID · RHITES-EC</span></div>
+          <h3 class="project-title">HIV/ART Data System Strengthening — Bugono HC</h3>
+          <p class="project-desc">Entered 1,400 patient records into Uganda EMR and managed data for 688 active ART clients. Compiled PEPFAR, MOH, and RHITES-EC indicator reports on weekly, monthly, and quarterly cycles — while mentoring health workers on correct HMIS register completion.</p>
+          <div class="project-outcomes">
+            <span class="outcome-pill">1,400 records</span>
+            <span class="outcome-pill">Uganda EMR</span>
+            <span class="outcome-pill">PEPFAR reporting</span>
+          </div>
+          <div class="project-decoration" aria-hidden="true">H</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CREDENTIALS ═══════════════════════════════════════ -->
+  <section id="credentials">
+    <div class="container">
+      <div class="credentials-grid">
+
+        <div class="reveal">
+          <span class="section-label">Experience</span>
+          <h2 class="cred-col">Career highlights</h2>
+          <div class="timeline" role="list" aria-label="Work experience timeline">
+
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-dot-wrap" aria-hidden="true">
+                <div class="timeline-dot active"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div>
+                <div class="timeline-period">Nov 2021 – Present</div>
+                <div class="timeline-role">MEAL Officer</div>
+                <div class="timeline-org">Act 4 Africa Uganda</div>
+                <div class="timeline-note">Lead MEAL design and implementation for health, SRHR, and community development programmes. UK Aid "A" rating achieved.</div>
+              </div>
+            </div>
+
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-dot-wrap" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div>
+                <div class="timeline-period">2017 – 2018</div>
+                <div class="timeline-role">Data Clerk / HIS Specialist</div>
+                <div class="timeline-org">University Research Co. (USAID RHITES-EC)</div>
+                <div class="timeline-note">Managed ART clinic data for 688 patients. PEPFAR, MOH, and HMIS reporting across 17 facilities.</div>
+              </div>
+            </div>
+
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-dot-wrap" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div>
+                <div class="timeline-period">Aug 2016 – Jun 2017</div>
+                <div class="timeline-role">M&amp;E Assistant</div>
+                <div class="timeline-org">PREFA</div>
+                <div class="timeline-note">Collected and verified HMIS data from 41 facilities across Wakiso and Luwero districts. Conducted DQAs and mentored records assistants.</div>
+              </div>
+            </div>
+
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-dot-wrap" aria-hidden="true">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div>
+                <div class="timeline-period">2015 – 2016</div>
+                <div class="timeline-role">M&amp;E Programme Intern</div>
+                <div class="timeline-org">PREFA</div>
+                <div class="timeline-note">Data entry, verification, and filing for M&amp;E department across all PREFA-supported facilities.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="reveal">
+          <span class="section-label">Education &amp; Certifications</span>
+          <h2 class="cred-col">Academic background</h2>
+
+          <div class="cert-list" style="margin-bottom:2.5rem;" aria-label="Degrees">
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <div>
+                <div class="cert-name">Postgraduate Diploma in Monitoring &amp; Evaluation</div>
+                <div class="cert-org">Uganda Management Institute</div>
+              </div>
+              <span class="cert-year">2025</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <div>
+                <div class="cert-name">Bachelor of Statistics and Economics</div>
+                <div class="cert-org">Kyambogo University, Kampala</div>
+              </div>
+              <span class="cert-year">2016</span>
+            </div>
+          </div>
+
+          <div class="cert-list" aria-label="Professional certifications">
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <div>
+                <div class="cert-name">M&amp;E Fundamentals</div>
+                <div class="cert-org">Professional Certificate</div>
+              </div>
+              <span class="cert-year">2016</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <div>
+                <div class="cert-name">Data Management &amp; Analysis — Excel &amp; Stata</div>
+                <div class="cert-org">Professional Certificate</div>
+              </div>
+              <span class="cert-year">2016</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <div>
+                <div class="cert-name">Health Management Information Systems</div>
+                <div class="cert-org">URC-CHS</div>
+              </div>
+              <span class="cert-year">2017</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <div>
+                <div class="cert-name">Uganda EMR &amp; DHIS2 Training</div>
+                <div class="cert-org">URC-CHS</div>
+              </div>
+              <span class="cert-year">2017</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <span class="section-label" style="color:var(--gold);">Get in Touch</span>
+        <h2 class="reveal">Ready to strengthen your<br/><em>programme's evidence?</em></h2>
+        <p class="contact-lead reveal">Whether you need a MEAL system built from scratch, an evaluation conducted, or a donor report written — let's talk about what your programme needs.</p>
+
+        <div class="contact-layout">
+
+          <!-- Left: quick contact cards -->
+          <div class="contact-cards-col reveal">
+            <a href="mailto:moryntrisah@gmail.com" class="contact-card">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div>
+                <div class="contact-card-label">Email</div>
+                <div class="contact-card-value">moryntrisah@gmail.com</div>
+              </div>
+            </a>
+            <a href="tel:+256706068936" class="contact-card">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.9 2.82 2 2 0 012.88.82h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <div>
+                <div class="contact-card-label">Phone / WhatsApp</div>
+                <div class="contact-card-value">+256 706 068 936</div>
+              </div>
+            </a>
+            <div class="contact-card">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <div class="contact-card-label">Location</div>
+                <div class="contact-card-value">Jinja City, Uganda</div>
+              </div>
+            </div>
+            <!-- NEW: LinkedIn link -->
+            <a href="https://linkedin.com/in/thereza-nalumansi" target="_blank" rel="noopener noreferrer" class="linkedin-card" aria-label="Thereza Nalumansi on LinkedIn (opens in new tab)">
+              <svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <div>
+                <div class="contact-card-label">LinkedIn</div>
+                <div class="contact-card-value">thereza-nalumansi</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Right: contact form -->
+          <div class="reveal">
+            <form class="contact-form" id="contact-form" novalidate aria-label="Send a message">
+              <div class="form-group">
+                <label for="cf-name">Your name</label>
+                <input type="text" id="cf-name" name="name" placeholder="e.g. Sarah Ochieng" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email address</label>
+                <input type="email" id="cf-email" name="email" placeholder="you@organisation.org" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-service">Service needed</label>
+                <select id="cf-service" name="service">
+                  <option value="" disabled selected>Select a service…</option>
+                  <option value="meal-design">MEAL System Design &amp; Setup</option>
+                  <option value="evaluation">Baseline / Endline Evaluation</option>
+                  <option value="reporting">Donor Reporting &amp; Documentation</option>
+                  <option value="other">Other / Not sure yet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cf-message">Tell me about your programme</label>
+                <textarea id="cf-message" name="message" placeholder="Brief description of your programme, timeline, and what you need help with…" required></textarea>
+              </div>
+              <div class="form-status" id="form-status" role="alert" aria-live="polite"></div>
+              <button type="submit" class="btn-submit" id="form-submit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p>© 2025 <span>Thereza Nalumansi</span> · MEAL Consultant · Jinja, Uganda</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ SCRIPTS ═══════════════════════════════════════════ -->
+  <script>
+    // ── Sticky nav ──────────────────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Mobile menu — proper aria-expanded toggle ────────────
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open navigation menu');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open navigation menu');
+        document.body.style.overflow = '';
+        hamburger.focus();
+      }
+    });
+
+    // ── Scroll reveal ────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Use the element's position within its parent section for stagger
+          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+          const idx = siblings.indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, Math.min(idx, 3) * 100);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Animated stat counters ───────────────────────────────
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.dataset.target) {
+          animateCounter(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => statObserver.observe(el));
+
+    // ── Active nav link highlighting ─────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const allNavLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 140) {
+          current = section.getAttribute('id');
+        }
+      });
+      allNavLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === '#' + current ? 'var(--forest)' : '';
+        link.style.fontWeight = link.getAttribute('href') === '#' + current ? '600' : '';
+      });
+    }, { passive: true });
+
+    // ── Contact form ─────────────────────────────────────────
+    // Uses Formspree — replace YOUR_FORM_ID with your actual endpoint after signing up at formspree.io
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+    const contactForm = document.getElementById('contact-form');
+    const formStatus  = document.getElementById('form-status');
+    const submitBtn   = document.getElementById('form-submit');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
+
+      // Basic client-side validation
+      const name    = contactForm.querySelector('[name="name"]').value.trim();
+      const email   = contactForm.querySelector('[name="email"]').value.trim();
+      const message = contactForm.querySelector('[name="message"]').value.trim();
+
+      if (!name || !email || !message) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Please fill in all required fields.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const data = new FormData(contactForm);
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          formStatus.className = 'form-status success';
+          formStatus.textContent = 'Message sent! I\'ll be in touch within 1–2 business days.';
+          contactForm.reset();
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        // Graceful fallback: open mail client
+        formStatus.className = 'form-status error';
+        formStatus.innerHTML = 'Submission failed. Please email me directly at <a href="mailto:moryntrisah@gmail.com" style="color:inherit;text-decoration:underline;">moryntrisah@gmail.com</a>';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+      }
+    });
+  </script>
+
+</body>
+</html>
